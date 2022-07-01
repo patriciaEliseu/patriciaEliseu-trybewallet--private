@@ -1,6 +1,11 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-const INITIAL_STATE = [];
+const INITIAL_STATE = {
+  totalGastos: 0,
+};
 
-export default function wallet(state = INITIAL_STATE) {
-  return state;
+export default function wallet(state = INITIAL_STATE, action) {
+  switch (action.type) {
+  default:
+    return state;
+  }
 }
