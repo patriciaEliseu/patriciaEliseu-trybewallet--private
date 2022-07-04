@@ -4,7 +4,6 @@ import { ADD_ELEMENT } from '../actions';
 const INITIAL_STATE = { email: '' };
 
 function user(state = INITIAL_STATE, action) {
-  console.log(action);
   switch (action.type) {
   case ADD_ELEMENT:
     return {

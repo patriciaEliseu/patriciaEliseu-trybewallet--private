@@ -11,7 +11,7 @@ export function createActionSaveLogin(email) {
 }
 
 export const requestCurrencies = () => ({
-  type: 'REQUEST_CURRENCIES',
+  type: REQUEST_CURRENCIES,
 });
 
 export const saveCurrencies = (currencies) => ({
@@ -23,8 +23,10 @@ export function fetchCurrencies() {
   return async (dispatch) => {
     const returnFetch = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await returnFetch.json();
+    // Object.Keys transforma um obj em array para poder
+    // usar o filter.
     const getCurrencies = Object.keys(data).filter((cent) => (cent !== 'USDT'));
-    console.log(getCurrencies);
-    return dispatch(saveCurrencies(getCurrencies));
+    console.log(saveCurrencies);
+    dispatch(saveCurrencies(getCurrencies));
   };
 }
