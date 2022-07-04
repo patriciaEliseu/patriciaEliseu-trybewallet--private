@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCurrencies } from '../actions';
+import tableExpense from '../components/tableExpense';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -59,7 +60,7 @@ class Wallet extends React.Component {
             Moeda:
             <select
               name="currency"
-              id="select"
+              id="currency"
               value="currency"
               onChange={ this.handleChange }
             >
@@ -103,7 +104,15 @@ class Wallet extends React.Component {
               <option value="Saúde">Saúde</option>
             </select>
           </label>
+          {/* <button
+            onClick={ this.handleAdd }
+            type="button"
+            value={ expense.id }
+          >
+            Adicionar
+          </button> */}
         </form>
+        <tableExpense />
       </>
     );
   }
@@ -111,7 +120,7 @@ class Wallet extends React.Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
-  totalGastos: state.totalGastos,
+  totalGastos: state.wallet.totalGastos,
   currencies: state.wallet.currencies,
 });
 

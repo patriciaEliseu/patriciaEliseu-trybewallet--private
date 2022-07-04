@@ -2,6 +2,7 @@
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const SAVE_CURRENCIES = 'SAVE_CURRENCIES';
 export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export function createActionSaveLogin(email) {
   return {
@@ -12,6 +13,10 @@ export function createActionSaveLogin(email) {
 
 export const requestCurrencies = () => ({
   type: REQUEST_CURRENCIES,
+});
+
+export const deletaDespesa = () => ({
+  type: DELETE_EXPENSE, id,
 });
 
 export const saveCurrencies = (currencies) => ({
