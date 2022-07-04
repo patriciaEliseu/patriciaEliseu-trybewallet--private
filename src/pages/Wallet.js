@@ -1,10 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCurrencies } from '../actions';
+import { fetchCurrencies, addExpense } from '../actions';
 import TableExpense from '../components/TableExpense';
 
 class Wallet extends React.Component {
+  state = {
+    // id: 0,
+    value: 0,
+    description: '',
+    currency: '',
+    method: '',
+    tag: '',
+    exchangeRates: {},
+  }
+
   componentDidMount() {
     const { saveCurrency } = this.props;
     saveCurrency();
@@ -19,9 +29,20 @@ class Wallet extends React.Component {
     });
   };
 
+  handleClick = () => {
+    const { value, description, currency,
+      method, tag, exchangeRates } = this.state;
+    const { saveExpense } = this.props;
+    // console.log(value, description, currency,
+    // method, tag, exchangeRates);
+    saveExpense(value, description, currency,
+      method, tag, exchangeRates);
+  }
+
   render() {
+    const { value } = this.state;
     const { email, totalGastos, currencies } = this.props;
-    console.log(this.props);
+    console.log(value);
     return (
       <>
         <header>
@@ -39,7 +60,7 @@ class Wallet extends React.Component {
             <input
               data-testid="value-input"
               type="number"
-              value="value"
+              // value="value"
               name="value"
               id="expense-value"
               onChange={ this.handleChange }
@@ -104,13 +125,12 @@ class Wallet extends React.Component {
               <option value="Saúde">Saúde</option>
             </select>
           </label>
-          {/* <button
-            onClick={ this.handleAdd }
+          <button
+            onClick={ this.handleClick }
             type="button"
-            value={ expense.id }
           >
             Adicionar
-          </button> */}
+          </button>
         </form>
         <TableExpense />
       </>
@@ -126,6 +146,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   saveCurrency: () => dispatch(fetchCurrencies()),
+  saveExpense: (expenses) => dispatch(addExpense(expenses)),
 });
 
 Wallet.propTypes = {
@@ -134,6 +155,7 @@ Wallet.propTypes = {
   // dispatch: PropTypes.func.isRequired,
   currencies: PropTypes.number.isRequired,
   saveCurrency: PropTypes.func.isRequired,
+  saveExpense: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

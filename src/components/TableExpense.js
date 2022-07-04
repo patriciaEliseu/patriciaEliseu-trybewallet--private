@@ -23,17 +23,17 @@ class TableExpense extends Component {
             <th>Valor convertido</th>
             <th>Moeda de conversão</th>
             <th>Editar/Excluir</th>
-            {/* <td>
+            <td>
               <button
                 data-testid="delete-btn"
                 onClick={ this.handleDel }
                 type="button"
-                value={ expense.id }
+                // value={ expense.id }
               >
                 Deletar
 
               </button>
-            </td> */}
+            </td>
           </tr>
         </thead>
       </table>
