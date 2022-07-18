@@ -35,7 +35,7 @@ class TableExpense extends Component {
               <td>{ Number(exp.value).toFixed(2) }</td>
               <td>
                 {/* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split */}
-                { exp.exchangeRates.name }
+                { exp.exchangeRates[exp.currency].name }
               </td>
               <td>
                 { Number(exp.exchangeRates[exp.currency].ask).toFixed(2) }
