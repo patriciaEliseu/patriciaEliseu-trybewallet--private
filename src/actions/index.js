@@ -2,7 +2,7 @@
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const SAVE_CURRENCIES = 'SAVE_CURRENCIES';
 export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
-// export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const EXCHANGE_ASK = 'EXCHANGE_ASK';
 
@@ -34,6 +34,11 @@ export const addExpense = (expenses) => ({
 export const exchangeAsk = (exchangeRates) => ({
   type: EXCHANGE_ASK,
   exchangeRates,
+});
+
+export const deletaDespesas = (id) => ({
+  type: DELETE_EXPENSE,
+  expenses: id,
 });
 
 export function fetchCurrencies() {

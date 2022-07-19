@@ -5,7 +5,7 @@ import { fetchCurrencies, addExpense } from '../actions';
 import TableExpense from '../components/TableExpense';
 import chamaFetch from '../reqFeth';
 
-const ALIMENTAÇÃO = 'Alimentação';
+const ALIMENTACAO = 'Alimentação';
 
 class Wallet extends React.Component {
   state = {
@@ -13,7 +13,7 @@ class Wallet extends React.Component {
     value: 0,
     description: '',
     currency: 'USD',
-    tag: ALIMENTAÇÃO,
+    tag: ALIMENTACAO,
     method: 'Dinheiro',
     // exchangeRates: {},
   };
@@ -62,7 +62,7 @@ class Wallet extends React.Component {
       value: 0,
       description: '',
       currency: 'USD',
-      tag: { ALIMENTAÇÃO },
+      tag: ALIMENTACAO,
       method: 'Dinheiro',
       // exchangeRates: chamaAPI,
     }));
@@ -153,7 +153,7 @@ class Wallet extends React.Component {
               value={ tag }
               onChange={ this.handleChange }
             >
-              <option value={ ALIMENTAÇÃO }>Alimentação</option>
+              <option value={ ALIMENTACAO }>Alimentação</option>
               <option value="Lazer">Lazer</option>
               <option value="Trabalho">Trabalho</option>
               <option value="Transporte">Transporte</option>
